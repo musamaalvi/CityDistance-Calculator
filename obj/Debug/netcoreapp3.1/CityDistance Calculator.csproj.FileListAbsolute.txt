@@ -1,0 +1,13 @@
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/bin/Debug/netcoreapp3.1/CityDistance Calculator
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/bin/Debug/netcoreapp3.1/CityDistance Calculator.deps.json
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/bin/Debug/netcoreapp3.1/CityDistance Calculator.runtimeconfig.json
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/bin/Debug/netcoreapp3.1/CityDistance Calculator.runtimeconfig.dev.json
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/bin/Debug/netcoreapp3.1/CityDistance Calculator.dll
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/bin/Debug/netcoreapp3.1/CityDistance Calculator.pdb
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.csprojAssemblyReference.cache
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.AssemblyInfoInputs.cache
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.AssemblyInfo.cs
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.csproj.CoreCompileInputs.cache
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.dll
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.pdb
+/home/muhammad/Personal/Projects/GitHub/CityDistance Calculator/obj/Debug/netcoreapp3.1/CityDistance Calculator.genruntimeconfig.cache
