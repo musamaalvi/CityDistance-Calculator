@@ -8,21 +8,36 @@ namespace CityDistance_Calculator
         {
             return Math.Abs(x1 - x2) + Math.Abs(y1 - y2);
         }
-
+        public static int findMinimumDistance(List<string> c, List<int> x, List<int> y, int index){
+            int minimiumDistance = int.MaxValue;
+            for(int j = 0; j < c.Count; j++){
+                //Comparing same city
+                if(index==j){continue;}
+                
+                if((x[index] == x[j] || y[index] == y[j]) && (manhattanDistance(x[index],x[j],y[index],y[j])<= minimiumDistance)){
+                    minimiumDistance = manhattanDistance(x[index], x[j], y[index], y[j]);
+                }
+                
+            }
+            return minimiumDistance;
+        }
         public static List<string> closestStraightCity(List<string> c, List<int> x, List<int> y, List<string> q){
             List<string> nearestCities = new List<string>();
+            Dictionary<string, Dictionary<int,int>> queriedCitiesCoordinates = new Dictionary<string, Dictionary<int, int>>();
+
+            
             for(int i = 0; i < c.Count; i++){
                 List<string> minimumDistanceCities = new List<string>();
                 int minimiumDistance = int.MaxValue;
+                minimiumDistance = findMinimumDistance(c, x, y, i);
                 for(int j = 0; j < c.Count; j++){
                     //Comparing same city
                     if(i==j){continue;}
                     
-                    if((x[i] == x[j] || y[i] == y[j]) && (manhattanDistance(x[i],x[j],y[i],y[j])<= minimiumDistance)){
-                        minimiumDistance = manhattanDistance(x[i],x[j],y[i],y[j]);
+                    if((x[i] == x[j] || y[i] == y[j]) && (manhattanDistance(x[i],x[j],y[i],y[j]) == minimiumDistance)){
+                        //minimiumDistance = manhattanDistance(x[i],x[j],y[i],y[j]);
                         minimumDistanceCities.Add(c[j]);
                     }
-                    
                 }
                 if(minimumDistanceCities.Count == 0){
                     nearestCities.Add("NONE");
@@ -60,7 +75,7 @@ namespace CityDistance_Calculator
                 "bigbanana",
                 "xyz"
             };
-            foreach(string city in closestStraightCity(c,x,y,q)){
+            foreach(string city in closestStraightCity(c, x, y, q)){
                 Console.WriteLine(city);
             }
         }
