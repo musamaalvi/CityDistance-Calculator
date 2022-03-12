@@ -23,6 +23,14 @@ namespace CityDistance_Calculator
             }
             return minimiumDistance;
         }
+        public static int findIndexCities(string queryCity, List<string> cities){
+            for(int i=0; i<cities.Count; i++){
+                if(queryCity == cities[i]){
+                    return i;
+                }
+            }
+            return -1;
+        }
         public static List<string> closestStraightCity(List<string> c, List<int> x, List<int> y, List<string> q){
             List<string> nearestCities = new List<string>();
             
@@ -30,7 +38,8 @@ namespace CityDistance_Calculator
                 Dictionary<string, Dictionary<int,int>> queriedCitiesCoordinates = new Dictionary<string, Dictionary<int, int>>();
 
                 
-                for(int i = 0; i < c.Count; i++){
+                for(int t = 0; t < q.Count; t++){
+                    int i = findIndexCities(q[t], c);
                     if(c[i].Length >= 1 && c[i].Length <= 10){
                         List<string> minimumDistanceCities = new List<string>();
                         int minimiumDistance = int.MaxValue;
