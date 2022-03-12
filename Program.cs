@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 namespace CityDistance_Calculator
 {
     class Program
@@ -23,31 +25,40 @@ namespace CityDistance_Calculator
         }
         public static List<string> closestStraightCity(List<string> c, List<int> x, List<int> y, List<string> q){
             List<string> nearestCities = new List<string>();
-            Dictionary<string, Dictionary<int,int>> queriedCitiesCoordinates = new Dictionary<string, Dictionary<int, int>>();
-
             
-            for(int i = 0; i < c.Count; i++){
-                List<string> minimumDistanceCities = new List<string>();
-                int minimiumDistance = int.MaxValue;
-                minimiumDistance = findMinimumDistance(c, x, y, i);
-                for(int j = 0; j < c.Count; j++){
-                    //Comparing same city
-                    if(i==j){continue;}
-                    
-                    if((x[i] == x[j] || y[i] == y[j]) && (manhattanDistance(x[i],x[j],y[i],y[j]) == minimiumDistance)){
-                        //minimiumDistance = manhattanDistance(x[i],x[j],y[i],y[j]);
-                        minimumDistanceCities.Add(c[j]);
+            if(1<= c.Count && q.Count <= 100000 && c.Count == c.Distinct().Count()){
+                Dictionary<string, Dictionary<int,int>> queriedCitiesCoordinates = new Dictionary<string, Dictionary<int, int>>();
+
+                
+                for(int i = 0; i < c.Count; i++){
+                    if(c[i].Length >= 1 && c[i].Length <= 10){
+                        List<string> minimumDistanceCities = new List<string>();
+                        int minimiumDistance = int.MaxValue;
+                        minimiumDistance = findMinimumDistance(c, x, y, i);
+                        for(int j = 0; j < c.Count; j++){
+                            //Comparing same city
+                            if(i==j){continue;}
+                            
+                            if((x[i] == x[j] || y[i] == y[j]) && (manhattanDistance(x[i],x[j],y[i],y[j]) == minimiumDistance)){
+                                //minimiumDistance = manhattanDistance(x[i],x[j],y[i],y[j]);
+                                minimumDistanceCities.Add(c[j]);
+                            }
+                        }
+                        if(minimumDistanceCities.Count == 0){
+                            nearestCities.Add("NONE");
+                        }
+                        else{
+                            string[] minimumCitiesArray = minimumDistanceCities.ToArray();
+                            Array.Sort(minimumCitiesArray, (xCoordinate,yCoordinate) => String.Compare(xCoordinate, yCoordinate));
+                            nearestCities.Add(minimumCitiesArray[0]);
+                        }
+
                     }
+                    
                 }
-                if(minimumDistanceCities.Count == 0){
-                    nearestCities.Add("NONE");
-                }
-                else{
-                    string[] minimumCitiesArray = minimumDistanceCities.ToArray();
-                    Array.Sort(minimumCitiesArray, (xCoordinate,yCoordinate) => String.Compare(xCoordinate, yCoordinate));
-                    nearestCities.Add(minimumCitiesArray[0]);
-                }
+
             }
+            
             
             return nearestCities;
 
